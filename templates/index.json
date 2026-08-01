@@ -36,7 +36,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_1_aug._2026_15_31_54.png",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 20,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
@@ -52,7 +52,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "forstasida",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "title": "Utvalda",
         "heading_size": "h2",
         "description": "",
@@ -72,8 +72,8 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "velna_balance": {
@@ -123,10 +123,10 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "velna_categories": {
@@ -189,8 +189,8 @@
       "settings": {
         "title": "Hitta din balans",
         "subtitle": "Fem vägar till bättre välmående – välj den som passar dig",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "newsletter_rQgtyz": {
@@ -223,8 +223,8 @@
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },

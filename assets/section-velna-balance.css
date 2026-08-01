@@ -6,10 +6,10 @@
 .velna-balance {
   position: relative;
   overflow: hidden;
-  background: #0A0A0A;
-  color: #FFFFFF;
+  background: #111111;
+  color: #FAFAFA;
   /* Mobil: generöst men inte slösaktigt vertikalt utrymme */
-  padding: 7rem 0;
+  padding: 8rem 0;
   isolation: isolate;
 }
 
@@ -128,20 +128,20 @@
 }
 
 .velna-balance__heading {
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.2rem;
   /* Mobil: bryter snyggt på 375/390/428px – max ~4 ord per rad */
-  font-size: clamp(2.8rem, 8.5vw, 4rem);
-  line-height: 1.18;
-  max-width: 14ch;
+  font-size: clamp(3.2rem, 10vw, 5.2rem);
+  line-height: 1.08;
+  max-width: 15ch;
   text-wrap: balance;
 }
 
 .velna-balance__text {
   margin: 0 auto;
-  font-size: 1.5rem;
-  line-height: 1.75;
-  max-width: 34ch;
-  opacity: 0.8;
+  font-size: 1.55rem;
+  line-height: 1.7;
+  max-width: 36ch;
+  opacity: 0.82;
 }
 
 .velna-balance__text p {
@@ -156,13 +156,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  margin-top: 2.8rem;
+  margin-top: 3rem;
   /* Tap-yta: 44px+ höjd */
-  min-height: 4.4rem;
-  padding: 1.2rem 2.4rem;
+  min-height: 4.8rem;
+  padding: 1.4rem 3rem;
   border: 1px solid currentColor;
-  border-radius: 6px;
-  font-size: 1.4rem;
+  border-radius: 999px;
+  font-size: 1.5rem;
   letter-spacing: 0.04em;
   text-decoration: none;
   color: inherit;
@@ -191,17 +191,17 @@
 
 @media screen and (min-width: 750px) {
   .velna-balance {
-    padding: 10rem 0;
+    padding: 11rem 0;
   }
 
   .velna-balance__heading {
     font-size: clamp(4rem, 5.5vw, 5.6rem);
-    max-width: 16ch;
+    max-width: 17ch;
   }
 
   .velna-balance__text {
-    font-size: 1.6rem;
-    max-width: 46ch;
+    font-size: 1.65rem;
+    max-width: 48ch;
   }
 }
 
@@ -209,11 +209,11 @@
 
 @media screen and (min-width: 990px) {
   .velna-balance {
-    padding: 13rem 0;
+    padding: 14rem 0;
   }
 
   .velna-balance__content {
-    max-width: 80rem;
+    max-width: 84rem;
   }
 
   .velna-balance__eyebrow {
@@ -221,6 +221,6 @@
   }
 
   .velna-balance__heading {
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.6rem;
   }
 }
