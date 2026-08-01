@@ -44,7 +44,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_1_aug._2026_15_31_54.png",
+        "image": "shopify://shop_images/fer.jpg",
         "image_overlay_opacity": 10,
         "image_height": "large",
         "image_behavior": "none",
@@ -147,7 +147,7 @@
             "collection": "energi",
             "title": "Energi",
             "description": "För fokus och ork som håller hela dagen",
-            "image": "shopify://shop_images/ener.png",
+            "image": "shopify://shop_images/55566.png",
             "link": "/collections/energi"
           }
         },
@@ -157,6 +157,7 @@
             "collection": "somn",
             "title": "Sömn",
             "description": "Vakna utvilad med naturligt sömnstöd",
+            "image": "shopify://shop_images/44445.png",
             "link": "/collections/somn"
           }
         },
@@ -166,6 +167,7 @@
             "collection": "stress-balans",
             "title": "Stress & Balans",
             "description": "Adaptogener och lugn för en jäktad vardag",
+            "image": "shopify://shop_images/3331.png",
             "link": "/collections/stress-balans"
           }
         },
@@ -175,6 +177,7 @@
             "collection": "viktbalans",
             "title": "Viktbalans",
             "description": "Stöd för en hållbar och hälsosam viktresa",
+            "image": "shopify://shop_images/222.png",
             "link": "/collections/viktbalans"
           }
         },
@@ -184,6 +187,7 @@
             "collection": "vardagshalsa",
             "title": "Vardagshälsa",
             "description": "Basen – vitaminer, mineraler och omega-3",
+            "image": "shopify://shop_images/111.png",
             "link": "/collections/all"
           }
         }
