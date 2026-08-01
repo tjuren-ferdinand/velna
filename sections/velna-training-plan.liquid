@@ -1,0 +1,337 @@
+{{ 'section-velna-training.css' | asset_url | stylesheet_tag }}
+
+<div class="velna-training color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+
+    <header class="velna-training__hero page-width">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="velna-training__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="velna-training__heading">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <div class="velna-training__intro rte">{{ section.settings.intro }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.hero_image != blank -%}
+        <div class="velna-training__hero-media scroll-trigger animate--slide-in">
+          {%- assign focal = section.settings.hero_image.presentation.focal_point -%}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1800
+            | image_tag:
+              widths: '375, 550, 750, 1100, 1500, 1800',
+              sizes: '(min-width: 990px) 50vw, 100vw',
+              loading: 'lazy',
+              decoding: 'async',
+              class: 'velna-training__hero-image',
+              style: focal
+          }}
+        </div>
+      {%- endif -%}
+    </header>
+
+    <div class="velna-training__schedule page-width scroll-trigger animate--slide-in">
+      <h2 class="velna-training__schedule-title">Vecka för vecka</h2>
+
+      {% assign weeks = "1,2,3,4" | split: "," %}
+      {% for i in weeks %}
+        {% assign title_key = "week_" | append: i | append: "_title" %}
+        {% assign content_key = "week_" | append: i | append: "_content" %}
+        {% assign title = section.settings[title_key] %}
+        {% assign content = section.settings[content_key] %}
+
+        {%- if title != blank -%}
+          <details class="velna-training__week" {{ block.shopify_attributes }}>
+            <summary class="velna-training__week-summary">
+              <span class="velna-training__week-number">Vecka {{ i }}</span>
+              <span class="velna-training__week-title">{{ title | escape }}</span>
+              <span class="velna-training__week-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="velna-training__week-content rte">
+              {%- if content != blank -%}
+                {{ content }}
+              {%- else -%}
+                <p>Upprepning av grundvanor. Läs mer under respektive kategori nedan.</p>
+              {%- endif -%}
+            </div>
+          </details>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+
+    <div class="velna-training__products page-width scroll-trigger animate--slide-in">
+      <h2 class="velna-training__products-title">Produkterna i planen</h2>
+
+      <div class="velna-training__grid">
+        {%- for block in section.blocks -%}
+          {%- assign collection = block.settings.collection -%}
+          {%- assign card_title = block.settings.title -%}
+          {%- if card_title == blank and collection != blank -%}
+            {%- assign card_title = collection.title -%}
+          {%- endif -%}
+          {%- assign card_url = block.settings.link | default: collection.url -%}
+          {%- assign card_description = block.settings.description -%}
+          {%- if card_description == blank and collection != blank -%}
+            {%- assign card_description = collection.description | strip_html -%}
+          {%- endif -%}
+
+          <a href="{{ card_url | default: '#' }}" class="velna-training__card scroll-trigger animate--slide-in" {{ block.shopify_attributes }}>
+            <div class="velna-training__card-media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag:
+                    widths: '375, 550, 800',
+                    sizes: '(min-width: 990px) 20vw, 50vw',
+                    loading: 'lazy',
+                    class: 'velna-training__card-image'
+                }}
+              {%- elsif collection != blank and collection.products.first.featured_image != blank -%}
+                {{
+                  collection.products.first.featured_image
+                  | image_url: width: 800
+                  | image_tag:
+                    widths: '375, 550, 800',
+                    sizes: '(min-width: 990px) 20vw, 50vw',
+                    loading: 'lazy',
+                    class: 'velna-training__card-image'
+                }}
+              {%- else -%}
+                <div class="velna-training__card-placeholder">
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {%- endif -%}
+            </div>
+            <div class="velna-training__card-content">
+              <h3 class="velna-training__card-title">{{ card_title | escape }}</h3>
+              {%- if card_description != blank -%}
+                <p class="velna-training__card-description">{{ card_description | escape | truncate: 120 }}</p>
+              {%- endif -%}
+              <span class="velna-training__card-link">Se produkter<span aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <div class="velna-training__cta">
+          <a href="{{ section.settings.button_link }}" class="velna-training__button">
+            {{ section.settings.button_label | escape }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Velna – Träningsplan",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "30-dagars program",
+      "label": "Liten rubrik"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Din 4-veckors guide till bättre välmående",
+      "label": "Rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "default": "<p>Ett enkelt upplägg som kombinerar de fem byggstenarna i Velna: energi, sömn, stressbalans, viktbalans och vardagshälsa. Följ vecka för vecka och anpassa efter dina behov.</p>",
+      "label": "Introtext"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero-bild",
+      "info": "Prompt: 'Minimalist Scandinavian wellness, open journal and a single supplement bottle on a cream marble table, morning light, warm beige and cream tones, extreme clean composition, lots of negative space, premium editorial photography, 35mm, shallow depth of field --ar 16:9 --style raw'"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Få gratis planen",
+      "label": "Knapptext"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "default": "/pages/traningsplan",
+      "label": "Knapplänk"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Färgschema"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding topp",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding botten",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Veckoplan"
+    },
+    {
+      "type": "text",
+      "id": "week_1_title",
+      "default": "Grund och energi",
+      "label": "Vecka 1 – rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "week_1_content",
+      "default": "<ul><li><strong>Måndag:</strong> Morgon: Vardagshälsa + Energi. Kväll: Sömn.</li><li><strong>Tisdag:</strong> Morgon: Energi. Kväll: Stress & Balans.</li><li><strong>Onsdag:</strong> Morgon: Vardagshälsa. Kväll: Sömn.</li><li><strong>Torsdag:</strong> Morgon: Energi. Kväll: Stress & Balans.</li><li><strong>Fredag:</strong> Morgon: Vardagshälsa. Kväll: Sömn.</li><li><strong>Lördag:</strong> Morgon: Energi. Kväll: Viktbalans.</li><li><strong>Söndag:</strong> Vila – reflektera över veckan.</li></ul>",
+      "label": "Vecka 1 – innehåll"
+    },
+    {
+      "type": "text",
+      "id": "week_2_title",
+      "default": "Återhämtning och sömn",
+      "label": "Vecka 2 – rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "week_2_content",
+      "default": "<ul><li><strong>Måndag:</strong> Morgon: Vardagshälsa. Kväll: Sömn.</li><li><strong>Tisdag:</strong> Morgon: Energi. Kväll: Sömn.</li><li><strong>Onsdag:</strong> Morgon: Vardagshälsa. Kväll: Stress & Balans.</li><li><strong>Torsdag:</strong> Morgon: Energi. Kväll: Sömn.</li><li><strong>Fredag:</strong> Morgon: Vardagshälsa. Kväll: Stress & Balans.</li><li><strong>Lördag:</strong> Morgon: Energi. Kväll: Viktbalans.</li><li><strong>Söndag:</strong> Sömn + lugn kvällsrutin.</li></ul>",
+      "label": "Vecka 2 – innehåll"
+    },
+    {
+      "type": "text",
+      "id": "week_3_title",
+      "default": "Balans och kontroll",
+      "label": "Vecka 3 – rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "week_3_content",
+      "default": "<ul><li><strong>Måndag:</strong> Morgon: Energi + Stress & Balans. Kväll: Sömn.</li><li><strong>Tisdag:</strong> Morgon: Vardagshälsa. Kväll: Stress & Balans.</li><li><strong>Onsdag:</strong> Morgon: Energi. Kväll: Sömn.</li><li><strong>Torsdag:</strong> Morgon: Viktbalans. Kväll: Stress & Balans.</li><li><strong>Fredag:</strong> Morgon: Energi. Kväll: Sömn.</li><li><strong>Lördag:</strong> Vardagshälsa + lång promenad.</li><li><strong>Söndag:</strong> Reflektion och sömn.</li></ul>",
+      "label": "Vecka 3 – innehåll"
+    },
+    {
+      "type": "text",
+      "id": "week_4_title",
+      "default": "Långsiktig vardagshälsa",
+      "label": "Vecka 4 – rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "week_4_content",
+      "default": "<ul><li><strong>Måndag:</strong> Morgon: Vardagshälsa + Energi. Kväll: Sömn.</li><li><strong>Tisdag:</strong> Morgon: Vardagshälsa. Kväll: Stress & Balans.</li><li><strong>Onsdag:</strong> Morgon: Energi. Kväll: Sömn.</li><li><strong>Torsdag:</strong> Morgon: Vardagshälsa. Kväll: Viktbalans.</li><li><strong>Fredag:</strong> Morgon: Energi. Kväll: Stress & Balans.</li><li><strong>Lördag:</strong> Alla baser + återhämtning.</li><li><strong>Söndag:</strong> Planera nästa vecka.</li></ul>",
+      "label": "Vecka 4 – innehåll"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Produktkategori",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Kollektion"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel (lämna tom för kollektionens namn)"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Beskrivning"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild (valfri)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Egen länk (om ingen kollektion vald)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Velna – Träningsplan",
+      "blocks": {
+        "category_energi": {
+          "type": "category",
+          "settings": {
+            "collection": "energi"
+          }
+        },
+        "category_somn": {
+          "type": "category",
+          "settings": {
+            "collection": "somn"
+          }
+        },
+        "category_stress": {
+          "type": "category",
+          "settings": {
+            "collection": "stress-balans"
+          }
+        },
+        "category_vikt": {
+          "type": "category",
+          "settings": {
+            "collection": "viktbalans"
+          }
+        },
+        "category_vardag": {
+          "type": "category",
+          "settings": {
+            "collection": "vardagshalsa"
+          }
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

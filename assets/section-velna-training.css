@@ -1,0 +1,273 @@
+.velna-training {
+  --color-text: #2E2A26;
+  --color-bg: #FDFBF7;
+  --color-cream: #F5F1EA;
+  --color-warm: #EBE5DD;
+  --color-muted: rgba(46, 42, 38, 0.6);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.velna-training__hero {
+  text-align: center;
+  padding-bottom: 3.2rem;
+}
+
+.velna-training__eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--color-muted);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.velna-training__heading {
+  margin: 0 0 1.6rem;
+  font-size: 3.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.velna-training__intro {
+  max-width: 72rem;
+  margin: 0 auto 3.2rem;
+  color: var(--color-muted);
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.velna-training__hero-media {
+  margin: 0 auto;
+  max-width: 96rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.velna-training__hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.velna-training__schedule,
+.velna-training__products {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.velna-training__schedule-title,
+.velna-training__products-title {
+  margin: 0 0 2.4rem;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.velna-training__week {
+  border-bottom: 1px solid var(--color-warm);
+  background: var(--color-bg);
+  transition: background 0.2s ease;
+}
+
+.velna-training__week:first-of-type {
+  border-top: 1px solid var(--color-warm);
+}
+
+.velna-training__week[open] {
+  background: var(--color-cream);
+}
+
+.velna-training__week-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2.4rem 1.6rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+
+.velna-training__week-summary::-webkit-details-marker {
+  display: none;
+}
+
+.velna-training__week-number {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 3.2rem;
+  border-radius: 10rem;
+  background: var(--color-warm);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.velna-training__week-title {
+  flex: 1 1 auto;
+  font-weight: 500;
+}
+
+.velna-training__week-icon {
+  flex: 0 0 auto;
+  font-size: 2rem;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.velna-training__week[open] .velna-training__week-icon {
+  transform: rotate(45deg);
+}
+
+.velna-training__week-content {
+  padding: 0 1.6rem 2.4rem;
+  max-width: 72rem;
+}
+
+.velna-training__week-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.velna-training__week-content li {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--color-warm);
+  line-height: 1.5;
+}
+
+.velna-training__week-content li:last-child {
+  border-bottom: 0;
+}
+
+.velna-training__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+
+.velna-training__card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-cream);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.velna-training__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(46, 42, 38, 0.1);
+}
+
+.velna-training__card-media {
+  aspect-ratio: 4 / 3;
+  background: var(--color-warm);
+  overflow: hidden;
+}
+
+.velna-training__card-image,
+.velna-training__card-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.velna-training__card-placeholder .placeholder-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.velna-training__card-content {
+  padding: 2rem;
+}
+
+.velna-training__card-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.velna-training__card-description {
+  margin: 0 0 1.2rem;
+  color: var(--color-muted);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.velna-training__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.velna-training__cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.velna-training__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.4rem 2.8rem;
+  border-radius: 10rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.velna-training__button:hover {
+  background: var(--color-cream);
+  color: var(--color-text);
+}
+
+@media screen and (min-width: 750px) {
+  .velna-training__heading {
+    font-size: 4.8rem;
+  }
+
+  .velna-training__schedule,
+  .velna-training__products {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .velna-training__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .velna-training__week-summary {
+    padding: 2.8rem 2.4rem;
+    font-size: 1.8rem;
+  }
+
+  .velna-training__week-content {
+    padding: 0 2.4rem 2.8rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .velna-training__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .velna-training__week-summary {
+    padding: 3.2rem 2.4rem;
+  }
+}
