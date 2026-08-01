@@ -147,7 +147,7 @@
             "collection": "energi",
             "title": "Energi",
             "description": "För fokus och ork som håller hela dagen",
-            "image": "shopify://shop_images/ener.png",
+            "image": "shopify://shop_images/IMG_3439.png",
             "link": "/collections/energi"
           }
         },
@@ -157,6 +157,7 @@
             "collection": "somn",
             "title": "Sömn",
             "description": "Vakna utvilad med naturligt sömnstöd",
+            "image": "shopify://shop_images/IMG_3442.jpg",
             "link": "/collections/somn"
           }
         },
@@ -166,6 +167,7 @@
             "collection": "stress-balans",
             "title": "Stress & Balans",
             "description": "Adaptogener och lugn för en jäktad vardag",
+            "image": "shopify://shop_images/Copilot_20260730_003633.png",
             "link": "/collections/stress-balans"
           }
         },
@@ -175,6 +177,7 @@
             "collection": "viktbalans",
             "title": "Viktbalans",
             "description": "Stöd för en hållbar och hälsosam viktresa",
+            "image": "shopify://shop_images/vikt.png",
             "link": "/collections/viktbalans"
           }
         },
@@ -184,6 +187,7 @@
             "collection": "vardagshalsa",
             "title": "Vardagshälsa",
             "description": "Basen – vitaminer, mineraler och omega-3",
+            "image": "shopify://shop_images/IMG_3445.jpg",
             "link": "/collections/all"
           }
         }
