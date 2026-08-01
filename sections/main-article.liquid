@@ -1,5 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'section-velna-tips.css' | asset_url | stylesheet_tag }}
 
+<div class="velna-tips velna-tips--article color-{{ section.settings.color_scheme }} gradient">
 <article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
@@ -287,6 +289,7 @@
     </div>
   {%- endif -%}
 </article>
+</div>
 
 <script type="application/ld+json">
   {{ article | structured_data }}
@@ -297,6 +300,14 @@
   "name": "t:sections.main-article.name",
   "tag": "section",
   "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Färgschema"
+    }
+  ],
   "blocks": [
     {
       "type": "@app"

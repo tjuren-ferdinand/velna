@@ -1,6 +1,7 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-velna-tips.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -17,6 +18,7 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
+<div class="velna-tips color-{{ section.settings.color_scheme }} gradient">
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
@@ -48,6 +50,7 @@
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
   </div>
+</div>
 {%- endpaginate -%}
 
 {% schema %}
@@ -113,6 +116,12 @@
       "id": "show_author",
       "default": false,
       "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Färgschema"
     },
     {
       "type": "header",

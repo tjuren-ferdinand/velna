@@ -1,0 +1,194 @@
+.velna-tips {
+  color: rgb(var(--color-foreground));
+  background: rgb(var(--color-background));
+}
+
+.velna-tips .main-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.velna-tips .title--primary {
+  margin: 0;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .velna-tips .title--primary {
+    font-size: 4.8rem;
+  }
+}
+
+.velna-tips .blog-articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+
+.velna-tips .blog-articles .card {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.velna-tips .blog-articles .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(var(--color-foreground), 0.1);
+}
+
+.velna-tips .article-card__image-wrapper .media {
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+
+.velna-tips .card__information {
+  padding: 2rem;
+}
+
+.velna-tips .card__heading {
+  margin: 0 0 0.8rem;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.velna-tips .article-card__info {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.6);
+  margin-bottom: 1rem;
+}
+
+.velna-tips .article-card__excerpt {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.7);
+  margin: 0;
+}
+
+.velna-tips .article-card__footer {
+  margin-top: 1.2rem;
+}
+
+.velna-tips .pagination-wrapper {
+  justify-content: center;
+}
+
+.velna-tips .pagination__list {
+  gap: 1rem;
+}
+
+.velna-tips .pagination__item {
+  border-radius: 50%;
+  min-width: 4rem;
+  min-height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.velna-tips .pagination__item--current {
+  background: rgba(var(--color-foreground), 0.1);
+}
+
+.velna-tips--article .article-template__hero-container {
+  max-width: 100%;
+  margin: 0 auto 3.2rem;
+}
+
+.velna-tips--article .article-template__hero-container .media {
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.velna-tips--article header {
+  margin: 0 auto 2.4rem;
+  text-align: center;
+  max-width: 80rem;
+}
+
+.velna-tips--article .article-template__title {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 750px) {
+  .velna-tips--article .article-template__title {
+    font-size: 4rem;
+  }
+}
+
+.velna-tips--article .article-template__content {
+  margin: 0 auto;
+  max-width: 72rem;
+}
+
+.velna-tips--article .article-template__content p,
+.velna-tips--article .article-template__content li {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+.velna-tips--article .article-template__content h2,
+.velna-tips--article .article-template__content h3 {
+  margin-top: 3.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.velna-tips--article .article-template__social-sharing {
+  margin: 3.2rem auto;
+  text-align: center;
+}
+
+.velna-tips--article .article-template__back {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.velna-tips--article .article-template__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: rgb(var(--color-foreground));
+}
+
+.velna-tips--article .article-template__comment-wrapper {
+  margin-top: 6rem;
+  padding: 4rem 0;
+}
+
+.velna-tips--article .article-template__comments-comment {
+  border-radius: 1.2rem;
+  margin-bottom: 1.6rem;
+  padding: 2rem;
+}
+
+.velna-tips--article .field__input,
+.velna-tips--article .text-area {
+  border-radius: 1rem;
+}
+
+@media screen and (min-width: 750px) {
+  .velna-tips .blog-articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .velna-tips .blog-articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .velna-tips--article .article-template__title {
+    font-size: 4.8rem;
+  }
+}
