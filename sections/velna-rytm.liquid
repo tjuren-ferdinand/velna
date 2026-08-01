@@ -1,0 +1,154 @@
+{{ 'section-velna-rytm.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="velna-rytm color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <details class="velna-rytm__details">
+      <summary class="velna-rytm__summary">
+        <h2 class="velna-rytm__title">Rytm — din AI-hälsoguide</h2>
+        <span class="velna-rytm__summary-icon">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </summary>
+
+      <div class="velna-rytm__content">
+        <p class="velna-rytm__intro">Ställ en fråga om träning, hälsa, välmående eller andning. Rytm ger korta, praktiska råd som stöd — inte diagnoser.</p>
+
+        <div class="velna-rytm__chips" role="group" aria-label="Förslag">
+          <button type="button" class="velna-rytm__chip" data-prompt="Ge mig en enkel andningsövning för lugn och fokus.">Andningsövning</button>
+          <button type="button" class="velna-rytm__chip" data-prompt="Ge mig tre tips på hur jag får mer energi under dagen.">Mer energi</button>
+          <button type="button" class="velna-rytm__chip" data-prompt="Vad är en bra återhämtningsrutin efter träning?">Återhämtning</button>
+          <button type="button" class="velna-rytm__chip" data-prompt="Hur kan jag bygga en bättre sömnrutin?">Bättre sömn</button>
+        </div>
+
+        <form class="velna-rytm__form" id="VelnaRytmForm">
+          <textarea
+            class="velna-rytm__input"
+            name="question"
+            placeholder="T.ex. Hur kan jag hantera stress på jobbet?"
+            required
+          ></textarea>
+          <button type="submit" class="button button--primary">Fråga Rytm</button>
+        </form>
+
+        <div class="velna-rytm__output" id="VelnaRytmOutput" aria-live="polite"></div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const form = document.getElementById('VelnaRytmForm');
+    const output = document.getElementById('VelnaRytmOutput');
+    const apiKey = {{ section.settings.api_key | json }};
+
+    if (!apiKey) {
+      output.textContent = 'Aktivera Rytm genom att lägga till en Groq API-nyckel i sektionens inställningar.';
+      form.querySelector('button').disabled = true;
+      return;
+    }
+
+    document.querySelectorAll('.velna-rytm__chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        form.question.value = chip.dataset.prompt;
+        form.dispatchEvent(new Event('submit', { cancelable: true }));
+      });
+    });
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const question = form.question.value.trim();
+      if (!question) return;
+
+      output.textContent = 'Rytm tänker…';
+
+      try {
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+          },
+          body: JSON.stringify({
+            model: 'llama3-8b-8192',
+            messages: [
+              {
+                role: 'system',
+                content: 'Du är en kortfattad, omtänksam hälsorådgivare inom träning, hälsa, välmående och andning. Svara på svenska, ge praktiska råd, påminn om att kontakta vårdpersonal vid medicinska frågor och undvik att ställa diagnoser.'
+              },
+              {
+                role: 'user',
+                content: question
+              }
+            ],
+            temperature: 0.7,
+            max_tokens: 600
+          })
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error?.message || 'Något gick fel.');
+        output.textContent = data.choices?.[0]?.message?.content || 'Inget svar mottogs.';
+      } catch (error) {
+        output.textContent = 'Rytm kunde inte svara just nu. Försök igen senare. (' + error.message + ')';
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Velna Rytm",
+  "settings": [
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Groq API-nyckel",
+      "info": "Nyckeln används i besökarens webbläsare. Använd en begränsad nyckel och rotera den regelbundet.",
+      "default": ""
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Färgschema",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Avstånd"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding topp",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding botten",
+      "default": 72
+    }
+  ]
+}
+{% endschema %}
