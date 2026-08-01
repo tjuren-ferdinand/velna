@@ -35,7 +35,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/Namnlos_design346yu4.png",
+        "image": "shopify://shop_images/ChatGPT_Image_1_aug._2026_15_31_54.png",
         "image_overlay_opacity": 10,
         "image_height": "large",
         "image_behavior": "none",
@@ -132,54 +132,54 @@
     "velna_categories": {
       "type": "velna-categories",
       "blocks": {
-        "cat_vikt": {
-          "type": "category",
-          "settings": {
-            "collection": "viktbalans",
-            "link": "/collections/viktbalans",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png",
-            "title": "Viktbalans",
-            "description": "Stöd för en hållbar och hälsosam viktresa"
-          }
-        },
         "cat_energi": {
           "type": "category",
           "settings": {
             "collection": "energi",
-            "link": "/collections/energi",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png",
             "title": "Energi",
-            "description": "För fokus och ork som håller hela dagen"
+            "description": "För fokus och ork som håller hela dagen",
+            "link": "/collections/energi",
+            "image": "shopify://shop_images/Namnlos_design346yu4.png"
           }
         },
         "cat_somn": {
           "type": "category",
           "settings": {
             "collection": "somn",
-            "link": "/collections/somn",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png",
             "title": "Sömn",
-            "description": "Vakna utvilad med naturligt sömnstöd"
+            "description": "Vakna utvilad med naturligt sömnstöd",
+            "link": "/collections/somn",
+            "image": "shopify://shop_images/Namnlos_design346yu4.png"
           }
         },
         "cat_stress": {
           "type": "category",
           "settings": {
             "collection": "stress-balans",
-            "link": "/collections/stress-balans",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png",
             "title": "Stress & Balans",
-            "description": "Adaptogener och lugn för en jäktad vardag"
+            "description": "Adaptogener och lugn för en jäktad vardag",
+            "link": "/collections/stress-balans",
+            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+          }
+        },
+        "cat_vikt": {
+          "type": "category",
+          "settings": {
+            "collection": "viktbalans",
+            "title": "Viktbalans",
+            "description": "Stöd för en hållbar och hälsosam viktresa",
+            "link": "/collections/viktbalans",
+            "image": "shopify://shop_images/Namnlos_design346yu4.png"
           }
         },
         "cat_vardag": {
           "type": "category",
           "settings": {
             "collection": "vardagshalsa",
-            "link": "/collections/all",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png",
             "title": "Vardagshälsa",
-            "description": "Basen – vitaminer, mineraler och omega-3"
+            "description": "Basen – vitaminer, mineraler och omega-3",
+            "link": "/collections/all",
+            "image": "shopify://shop_images/Namnlos_design346yu4.png"
           }
         }
       },
@@ -192,7 +192,9 @@
       ],
       "settings": {
         "title": "Hitta din balans",
-        "subtitle": "Fem vägar till bättre välmående – välj den som passar dig"
+        "subtitle": "Fem vägar till bättre välmående – välj den som passar dig",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "newsletter_rQgtyz": {
