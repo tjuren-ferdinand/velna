@@ -1,0 +1,97 @@
+{{ 'section-velna-balance.css' | asset_url | stylesheet_tag }}
+
+<div class="velna-balance{% if section.settings.image != blank %} velna-balance--has-image{% endif %}">
+  {%- if section.settings.image != blank -%}
+    <div class="velna-balance__media" aria-hidden="true">
+      {%- assign focal = section.settings.image.presentation.focal_point -%}
+      {{
+        section.settings.image
+        | image_url: width: 1800
+        | image_tag:
+          widths: '375, 550, 750, 1100, 1500, 1800',
+          sizes: '100vw',
+          loading: 'lazy',
+          decoding: 'async',
+          class: 'velna-balance__image',
+          style: focal
+      }}
+      <div class="velna-balance__scrim"></div>
+    </div>
+  {%- else -%}
+    <div class="velna-balance__light" aria-hidden="true">
+      <span class="velna-balance__glow velna-balance__glow--1"></span>
+      <span class="velna-balance__glow velna-balance__glow--2"></span>
+      <span class="velna-balance__shadow"></span>
+    </div>
+  {%- endif -%}
+
+  <div class="velna-balance__content page-width">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="velna-balance__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="velna-balance__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="velna-balance__text">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="velna-balance__button">
+        {{ section.settings.button_label | escape }}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Velna – Balans",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Vår filosofi",
+      "label": "Liten rubrik"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Balans har ingen ålder — och ingen roll.",
+      "label": "Rubrik"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Välmående handlar inte om perfektion – det handlar om små, medvetna val varje dag. Velna gör det enkelt att ta hand om sig själv, oavsett var du befinner dig i livet.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Knapptext (valfri)"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Knapplänk"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bakgrundsbild (valfri)",
+      "info": "Utan bild visas varmt ljus. Sätt fokuspunkt på bilden i admin för rätt mobilbeskärning."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Velna – Balans"
+    }
+  ]
+}
+{% endschema %}

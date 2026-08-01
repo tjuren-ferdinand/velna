@@ -1,0 +1,120 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "story": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Skandinavisk enkelhet. Vetenskaplig grund.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Velna föddes ur en frustration: hälsobranschen är full av buller, överdrivna löften och produkter som lovar allt men levererar lite. Vi ville göra tvärtom. Färre produkter, noggrannare utvalda, med transparens i varje steg.</p><p>Namnet Velna kommer från det nordiska ordet för välmående – och det är precis vad vi arbetar för. Inte snabba fixar, utan hållbara vanor som bygger en starkare vardag.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "values": {
+      "type": "multicolumn",
+      "blocks": {
+        "value_1": {
+          "type": "column",
+          "settings": {
+            "title": "Kvalitet före kvantitet",
+            "text": "<p>Varje produkt i vårt sortiment är noggrant utvald. Vi säljer inget vi inte själva skulle använda.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "value_2": {
+          "type": "column",
+          "settings": {
+            "title": "Transparens",
+            "text": "<p>Tydliga innehållsförteckningar, ärlig kommunikation och inga överdrivna hälsopåståenden.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "value_3": {
+          "type": "column",
+          "settings": {
+            "title": "Balans i vardagen",
+            "text": "<p>Vi tror på små, hållbara steg – inte extrema dieter eller mirakelkurer.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["value_1", "value_2", "value_3"],
+      "settings": {
+        "title": "Det vi står för",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Redo att hitta din balans?",
+            "heading_size": "h2"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Utforska sortimentet",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": ["heading", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["main", "story", "values", "cta"]
+}

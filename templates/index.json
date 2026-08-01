@@ -1,0 +1,240 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Naturlig balans. Starkare imorgon.",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_N4h7pH": {
+          "type": "text",
+          "settings": {
+            "text": "Premiumtillskott för en kropp och vardag i balans",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Upptäck våra produkter",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_N4h7pH",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Namnlos_design346yu4.png",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "forstasida",
+        "products_to_show": 8,
+        "title": "Utvalda",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "velna_balance": {
+      "type": "velna-balance",
+      "settings": {
+        "eyebrow": "Vår filosofi",
+        "heading": "Balans har ingen ålder — och ingen roll.",
+        "text": "<p>Välmående handlar inte om perfektion – det handlar om små, medvetna val varje dag. Velna gör det enkelt att ta hand om sig själv, oavsett var du befinner dig i livet.</p>",
+        "button_label": "Läs vår historia",
+        "button_link": "/pages/om-velna"
+      }
+    },
+    "rich_text_yz4hG9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rfYNBh": {
+          "type": "heading",
+          "settings": {
+            "heading": "En enklare väg till bättre välmående",
+            "heading_size": "h1"
+          }
+        },
+        "text_CEXgBw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Velna grundades med en enkel tanke: hälsa ska inte behöva vara komplicerat. Vi väljer noggrant ut produkter med fokus på kvalitet, transparens och en balanserad livsstil – för dig som vill må bättre, varje dag.</p>"
+          }
+        },
+        "button_iXjjF4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Läs om Velna",
+            "button_link": "/pages/om-velna",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rfYNBh",
+        "text_CEXgBw",
+        "button_iXjjF4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "velna_categories": {
+      "type": "velna-categories",
+      "blocks": {
+        "cat_vikt": {
+          "type": "category",
+          "settings": {
+            "collection": "viktminskning",
+            "title": "Viktbalans",
+            "description": "Stöd för en hållbar och hälsosam viktresa"
+          }
+        },
+        "cat_energi": {
+          "type": "category",
+          "settings": {
+            "collection": "kosttillskott",
+            "title": "Energi",
+            "description": "För fokus och ork som håller hela dagen"
+          }
+        },
+        "cat_somn": {
+          "type": "category",
+          "settings": {
+            "collection": "halsa-valmaende",
+            "title": "Sömn",
+            "description": "Vakna utvilad med naturligt sömnstöd"
+          }
+        },
+        "cat_stress": {
+          "type": "category",
+          "settings": {
+            "collection": "traning-hemma",
+            "title": "Stress & Balans",
+            "description": "Adaptogener och lugn för en jäktad vardag"
+          }
+        },
+        "cat_vardag": {
+          "type": "category",
+          "settings": {
+            "title": "Vardagshälsa",
+            "description": "Basen – vitaminer, mineraler och omega-3",
+            "link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "cat_energi",
+        "cat_somn",
+        "cat_stress",
+        "cat_vikt",
+        "cat_vardag"
+      ],
+      "settings": {
+        "title": "Hitta din balans",
+        "subtitle": "Fem vägar till bättre välmående – välj den som passar dig"
+      }
+    },
+    "newsletter_rQgtyz": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_QHEbE3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gå med i Velna-communityt",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_83iVht": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Få hälsotips, exklusiva erbjudanden och inspiration för ett mer balanserat liv – direkt i din inkorg.</p>"
+          }
+        },
+        "email_form_rTYyda": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_QHEbE3",
+        "paragraph_83iVht",
+        "email_form_rTYyda"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "velna_balance",
+    "rich_text_yz4hG9",
+    "velna_categories",
+    "newsletter_rQgtyz"
+  ]
+}

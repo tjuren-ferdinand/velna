@@ -1,0 +1,96 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Hur kan vi hjälpa dig?",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Hur lång är leveranstiden?",
+            "icon": "none",
+            "row_content": "<p>Vi skickar normalt inom 1–2 vardagar och leveransen tar därefter 2–4 vardagar inom Sverige.</p>",
+            "page": ""
+          }
+        },
+        "faq_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Kan jag returnera en produkt?",
+            "icon": "none",
+            "row_content": "<p>Ja, du har 30 dagars ångerrätt på obrutna förpackningar. Kontakta oss så hjälper vi dig med returen.</p>",
+            "page": ""
+          }
+        },
+        "faq_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Kan jag kombinera flera tillskott?",
+            "icon": "none",
+            "row_content": "<p>De flesta av våra produkter går utmärkt att kombinera. Är du osäker, eller tar mediciner, rådgör alltid med läkare eller apotek först.</p>",
+            "page": ""
+          }
+        },
+        "faq_4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "När svarar ni på mejl?",
+            "icon": "none",
+            "row_content": "<p>Vi svarar vardagar inom 24 timmar. Helger kan det dröja något längre – men vi återkommer alltid.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Vanliga frågor",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-2",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form",
+    "faq"
+  ]
+}

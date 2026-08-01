@@ -1,0 +1,226 @@
+/* ============================================
+   Velna – Balans
+   Mobile-first: bas = mobil, min-width bygger på
+   ============================================ */
+
+.velna-balance {
+  position: relative;
+  overflow: hidden;
+  background: #f1e9dd;
+  color: #2e2a26;
+  /* Mobil: generöst men inte slösaktigt vertikalt utrymme */
+  padding: 7rem 0;
+  isolation: isolate;
+}
+
+/* ---------- Levande ljus (utan bild) ---------- */
+
+.velna-balance__light {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.velna-balance__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+/* Varm solfläck som vandrar långsamt */
+.velna-balance__glow--1 {
+  width: 130vw;
+  height: 130vw;
+  max-width: 900px;
+  max-height: 900px;
+  top: -40%;
+  right: -35%;
+  background: radial-gradient(circle at center, rgba(250, 243, 230, 0.95) 0%, rgba(240, 226, 203, 0.4) 45%, rgba(241, 233, 221, 0) 70%);
+}
+
+.velna-balance__glow--2 {
+  width: 90vw;
+  height: 90vw;
+  max-width: 640px;
+  max-height: 640px;
+  bottom: -30%;
+  left: -25%;
+  background: radial-gradient(circle at center, rgba(216, 203, 186, 0.5) 0%, rgba(216, 203, 186, 0) 70%);
+}
+
+/* Mjuk fönsterskugga som glider över ytan */
+.velna-balance__shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20%;
+  width: 55%;
+  background: linear-gradient(100deg, rgba(46, 42, 38, 0) 0%, rgba(46, 42, 38, 0.05) 45%, rgba(46, 42, 38, 0) 100%);
+  transform: skewX(-8deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .velna-balance__glow--1 {
+    animation: velna-sun-drift 24s ease-in-out infinite alternate;
+  }
+
+  .velna-balance__glow--2 {
+    animation: velna-sun-drift 30s ease-in-out infinite alternate-reverse;
+  }
+
+  .velna-balance__shadow {
+    animation: velna-shadow-drift 40s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes velna-sun-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-8%, 6%) scale(1.08); }
+}
+
+@keyframes velna-shadow-drift {
+  from { transform: translateX(0) skewX(-8deg); }
+  to { transform: translateX(60%) skewX(-8deg); }
+}
+
+/* ---------- Valfri bakgrundsbild ---------- */
+
+.velna-balance__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.velna-balance__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.velna-balance__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(46, 42, 38, 0.55) 0%, rgba(46, 42, 38, 0.25) 60%, rgba(46, 42, 38, 0.15) 100%);
+}
+
+.velna-balance--has-image {
+  color: #faf7f2;
+}
+
+/* ---------- Innehåll (mobil bas) ---------- */
+
+.velna-balance__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.velna-balance__eyebrow {
+  margin: 0 0 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.velna-balance__heading {
+  margin: 0 auto 2rem;
+  /* Mobil: bryter snyggt på 375/390/428px – max ~4 ord per rad */
+  font-size: clamp(2.8rem, 8.5vw, 4rem);
+  line-height: 1.18;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.velna-balance__text {
+  margin: 0 auto;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  max-width: 34ch;
+  opacity: 0.8;
+}
+
+.velna-balance__text p {
+  margin: 0;
+}
+
+.velna-balance__text p + p {
+  margin-top: 1.2rem;
+}
+
+.velna-balance__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2.8rem;
+  /* Tap-yta: 44px+ höjd */
+  min-height: 4.4rem;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.velna-balance__button:hover {
+  background: #2e2a26;
+  color: #faf7f2;
+}
+
+.velna-balance--has-image .velna-balance__button:hover {
+  background: #faf7f2;
+  color: #2e2a26;
+}
+
+.velna-balance__button span {
+  transition: transform 0.3s ease;
+}
+
+.velna-balance__button:hover span {
+  transform: translateX(4px);
+}
+
+/* ---------- Tablet ---------- */
+
+@media screen and (min-width: 750px) {
+  .velna-balance {
+    padding: 10rem 0;
+  }
+
+  .velna-balance__heading {
+    font-size: clamp(4rem, 5.5vw, 5.6rem);
+    max-width: 16ch;
+  }
+
+  .velna-balance__text {
+    font-size: 1.6rem;
+    max-width: 46ch;
+  }
+}
+
+/* ---------- Desktop ---------- */
+
+@media screen and (min-width: 990px) {
+  .velna-balance {
+    padding: 13rem 0;
+  }
+
+  .velna-balance__content {
+    max-width: 80rem;
+  }
+
+  .velna-balance__eyebrow {
+    margin-bottom: 2rem;
+  }
+
+  .velna-balance__heading {
+    margin-bottom: 2.4rem;
+  }
+}

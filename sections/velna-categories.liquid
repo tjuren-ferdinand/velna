@@ -1,0 +1,149 @@
+{{ 'section-velna-categories.css' | asset_url | stylesheet_tag }}
+
+<div class="velna-categories page-width section-{{ section.id }}-padding">
+  <div class="velna-categories__header scroll-trigger animate--slide-in">
+    {%- if section.settings.title != blank -%}
+      <h2 class="velna-categories__title">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subtitle != blank -%}
+      <p class="velna-categories__subtitle">{{ section.settings.subtitle | escape }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="velna-categories__grid">
+    {%- for block in section.blocks -%}
+      {%- assign collection = block.settings.collection -%}
+      {%- assign card_title = block.settings.title -%}
+      {%- if card_title == blank and collection != blank -%}
+        {%- assign card_title = collection.title -%}
+      {%- endif -%}
+      {%- assign card_url = collection.url | default: block.settings.link -%}
+      <a
+        href="{{ card_url | default: '#' }}"
+        class="velna-category-card velna-category-card--{{ forloop.index }} scroll-trigger animate--slide-in"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: {{ forloop.index }};"
+        {% endif %}
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.image != blank -%}
+          <div class="velna-category-card__media">
+            {{
+              block.settings.image
+              | image_url: width: 800
+              | image_tag: widths: '375, 550, 800', sizes: '(min-width: 990px) 25vw, 50vw', loading: 'lazy', class: 'velna-category-card__image'
+            }}
+          </div>
+        {%- endif -%}
+        <div class="velna-category-card__content">
+          <h3 class="velna-category-card__title">{{ card_title | escape }}</h3>
+          {%- if block.settings.description != blank -%}
+            <p class="velna-category-card__description">{{ block.settings.description | escape }}</p>
+          {%- endif -%}
+          <span class="velna-category-card__link">
+            {%- if collection != blank -%}
+              {{ collection.products_count }} produkter
+            {%- else -%}
+              Utforska
+            {%- endif -%}
+            <span class="velna-category-card__arrow" aria-hidden="true">&rarr;</span>
+          </span>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Velna kategorier",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Hitta din balans",
+      "label": "Rubrik"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Underrubrik"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding topp",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding botten",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Kategori",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Kollektion"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel (lämna tom för kollektionens namn)"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Kort beskrivning"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild (valfri – annars visas tonat kort)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Egen länk (om ingen kollektion vald)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Velna kategorier",
+      "blocks": [
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" }
+      ]
+    }
+  ]
+}
+{% endschema %}
