@@ -147,6 +147,7 @@
             "collection": "energi",
             "title": "Energi",
             "description": "För fokus och ork som håller hela dagen",
+            "image": "shopify://shop_images/ener.png",
             "link": "/collections/energi"
           }
         },
