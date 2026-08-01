@@ -1,0 +1,142 @@
+.velna-journal {
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+}
+
+.velna-journal__header {
+  max-width: 72rem;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+.velna-journal__header h1 {
+  margin: 0 0 1rem;
+}
+
+.velna-journal__intro {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.velna-journal__list {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.velna-journal__post {
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.velna-journal__post:last-child {
+  border-bottom: none;
+}
+
+.velna-journal__title {
+  margin: 0 0 1.2rem;
+  font-size: 2.8rem;
+  line-height: 1.15;
+}
+
+.velna-journal__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.velna-journal__tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(var(--color-foreground), 0.08);
+  color: rgb(var(--color-foreground));
+}
+
+.velna-journal__excerpt {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0 0 2rem;
+}
+
+.velna-journal__summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  list-style: none;
+  color: rgb(var(--color-foreground));
+  background: transparent;
+}
+
+.velna-journal__summary::-webkit-details-marker {
+  display: none;
+}
+
+.velna-journal__summary .svg-wrapper {
+  transition: transform 0.2s ease;
+}
+
+.velna-journal details[open] .velna-journal__summary .svg-wrapper {
+  transform: rotate(180deg);
+}
+
+.velna-journal__details-content {
+  padding-top: 2.4rem;
+  max-width: 72rem;
+}
+
+.velna-journal__details-content h2 {
+  margin: 3rem 0 1.2rem;
+  font-size: 2.2rem;
+}
+
+.velna-journal__details-content h3 {
+  margin: 2.4rem 0 1rem;
+  font-size: 1.8rem;
+}
+
+.velna-journal__details-content p,
+.velna-journal__details-content li {
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+.velna-journal__details-content ul {
+  margin: 1.2rem 0 2rem;
+  padding-left: 2rem;
+}
+
+.velna-journal__details-content a {
+  text-decoration: underline;
+  color: rgb(var(--color-foreground));
+}
+
+.velna-journal__details-content small {
+  display: block;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 750px) {
+  .velna-journal {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+
+  .velna-journal__title {
+    font-size: 3.6rem;
+  }
+}
