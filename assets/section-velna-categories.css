@@ -2,6 +2,11 @@
    Velna kategorier – minimalistisk, mobile-first
    ============================================ */
 
+.velna-categories {
+  background: #0A0A0A;
+  color: #FFFFFF;
+}
+
 .velna-categories__header {
   text-align: center;
   margin-bottom: 4rem;
@@ -13,7 +18,7 @@
 
 .velna-categories__subtitle {
   margin: 0;
-  color: rgba(46, 42, 38, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.5rem;
   letter-spacing: 0.01em;
 }
@@ -34,7 +39,7 @@
   padding: 2.4rem 2.2rem;
   overflow: hidden;
   text-decoration: none;
-  color: #2e2a26;
+  color: #FFFFFF;
   isolation: isolate;
   border-radius: 16px;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -48,16 +53,16 @@
 
 .velna-category-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 44px rgba(46, 42, 38, 0.12);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
 }
 
-/* Varma, dova ytor – en ton per kort */
-.velna-category-card--1 { background: #ece3d4; }
-.velna-category-card--2 { background: #e3d4bd; }
-.velna-category-card--3 { background: #ddd6c9; }
-.velna-category-card--4 { background: #cdd5c7; }
-.velna-category-card--5 { background: #e6dccc; }
-.velna-category-card--6 { background: #d6cdbd; }
+/* Kalla, dova ytor – en ton per kort */
+.velna-category-card--1 { background: #0A0A0A; }
+.velna-category-card--2 { background: #151515; }
+.velna-category-card--3 { background: #1F1F1F; }
+.velna-category-card--4 { background: #2A2A2A; }
+.velna-category-card--5 { background: #333333; }
+.velna-category-card--6 { background: #3D3D3D; }
 
 /* Ett enda stilla ljus per kort – ingen rörelse i vila */
 .velna-category-card::before {
@@ -68,7 +73,7 @@
   width: 75%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, rgba(250, 247, 242, 0.5), rgba(250, 247, 242, 0) 68%);
+  background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 68%);
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 0;
 }
@@ -98,11 +103,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(46, 42, 38, 0.58) 0%, rgba(46, 42, 38, 0) 55%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 55%);
 }
 
 .velna-category-card__media ~ .velna-category-card__content {
-  color: #faf7f2;
+  color: #FFFFFF;
 }
 
 .velna-category-card__content {
