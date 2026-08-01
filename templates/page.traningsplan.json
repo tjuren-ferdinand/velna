@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "main": {
+      "type": "velna-training-plan",
+      "blocks": {
+        "category_energi": {
+          "type": "category",
+          "settings": {
+            "collection": "energi"
+          }
+        },
+        "category_somn": {
+          "type": "category",
+          "settings": {
+            "collection": "somn"
+          }
+        },
+        "category_stress": {
+          "type": "category",
+          "settings": {
+            "collection": "stress-balans"
+          }
+        },
+        "category_vikt": {
+          "type": "category",
+          "settings": {
+            "collection": "viktbalans"
+          }
+        },
+        "category_vardag": {
+          "type": "category",
+          "settings": {
+            "collection": "vardagshalsa"
+          }
+        }
+      },
+      "block_order": [
+        "category_energi",
+        "category_somn",
+        "category_stress",
+        "category_vikt",
+        "category_vardag"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
