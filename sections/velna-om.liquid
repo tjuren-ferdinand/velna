@@ -1,0 +1,105 @@
+{{ 'section-velna-om.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="velna-om color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="velna-om__hero">
+      <span class="velna-om__kicker">Vårt syfte</span>
+      <h1 class="velna-om__title">{{ page.title | default: 'Om Velna' | escape }}</h1>
+      <p class="velna-om__subtitle">Hälsa ska vara enkelt, jordnära och långsiktigt — inte en kamp mot tiden.</p>
+    </div>
+
+    <div class="velna-om__story rte">
+      <p>Velna föddes ur en frustration: hälsobranschen är full av buller, överdrivna löften och produkter som lovar allt men levererar lite. Vi ville göra tvärtom. Färre, noggrannare utvalda produkter med tydlighet i varje steg.</p>
+      <p>Namnet Velna har sina rötter i det nordiska ordet för välmående — och det är precis det vi arbetar för. Inte snabba fixar, utan hållbara vanor som bygger en starkare vardag. Kosttillskott, återhämtning, andning och balanserad träning, allt under samma tak.</p>
+      <p>Vårt sortiment är uppdelat i fem områden där vi ser störst behov: energi, sömn, stress & balans, viktbalans och vardagshälsa. Varje produkt väljs med omsorg och backas av en vilja att vara ärliga om vad den faktiskt kan göra — och inte göra.</p>
+    </div>
+
+    <div class="velna-om__values">
+      <article class="velna-om__value">
+        <h3>Kvalitet före kvantitet</h3>
+        <p>Vi säljer inget vi inte själva skulle använda. Varje produkt granskas för renhet, ursprung och verklig nytta.</p>
+      </article>
+      <article class="velna-om__value">
+        <h3>Transparens</h3>
+        <p>Tydliga innehållsförteckningar, ärlig kommunikation och inga överdrivna hälsopåståenden.</p>
+      </article>
+      <article class="velna-om__value">
+        <h3>Balans i vardagen</h3>
+        <p>Små, hållbara steg slår extrema dieter och mirakelkurer. Det är i vardagen hälsa byggs.</p>
+      </article>
+      <article class="velna-om__value">
+        <h3>Vetenskaplig grund</h3>
+        <p>Vi lutar oss mot väletablerad forskning och kliniska tecken — inte trender.</p>
+      </article>
+    </div>
+
+    <div class="velna-om__categories">
+      <h2 class="velna-om__categories-heading">Utforska våra områden</h2>
+      <ul class="velna-om__category-list" role="list">
+        <li><a class="velna-om__category-link" href="/collections/energi">Energi</a></li>
+        <li><a class="velna-om__category-link" href="/collections/somn">Sömn</a></li>
+        <li><a class="velna-om__category-link" href="/collections/stress-balans">Stress &amp; Balans</a></li>
+        <li><a class="velna-om__category-link" href="/collections/viktbalans">Viktbalans</a></li>
+        <li><a class="velna-om__category-link" href="/collections/vardagshalsa">Vardagshälsa</a></li>
+      </ul>
+    </div>
+
+    <div class="velna-om__cta">
+      <a href="/collections/all" class="button button--primary">Utforska sortimentet</a>
+    </div>
+
+    <p class="velna-om__disclaimer">Kosttillskott ersätter inte en varierad kost och ska inte användas för att behandla eller bota sjukdomar. Rådgör alltid med vårdpersonal vid medicinska frågor.</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Velna Om",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Färgschema",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Avstånd"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding topp",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding botten",
+      "default": 72
+    }
+  ]
+}
+{% endschema %}
