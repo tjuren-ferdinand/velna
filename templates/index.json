@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -138,8 +147,8 @@
             "collection": "energi",
             "title": "Energi",
             "description": "För fokus och ork som håller hela dagen",
-            "link": "/collections/energi",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+            "image": "shopify://shop_images/ener.png",
+            "link": "/collections/energi"
           }
         },
         "cat_somn": {
@@ -148,8 +157,7 @@
             "collection": "somn",
             "title": "Sömn",
             "description": "Vakna utvilad med naturligt sömnstöd",
-            "link": "/collections/somn",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+            "link": "/collections/somn"
           }
         },
         "cat_stress": {
@@ -158,8 +166,7 @@
             "collection": "stress-balans",
             "title": "Stress & Balans",
             "description": "Adaptogener och lugn för en jäktad vardag",
-            "link": "/collections/stress-balans",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+            "link": "/collections/stress-balans"
           }
         },
         "cat_vikt": {
@@ -168,8 +175,7 @@
             "collection": "viktbalans",
             "title": "Viktbalans",
             "description": "Stöd för en hållbar och hälsosam viktresa",
-            "link": "/collections/viktbalans",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+            "link": "/collections/viktbalans"
           }
         },
         "cat_vardag": {
@@ -178,8 +184,7 @@
             "collection": "vardagshalsa",
             "title": "Vardagshälsa",
             "description": "Basen – vitaminer, mineraler och omega-3",
-            "link": "/collections/all",
-            "image": "shopify://shop_images/Namnlos_design346yu4.png"
+            "link": "/collections/all"
           }
         }
       },
