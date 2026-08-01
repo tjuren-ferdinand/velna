@@ -1,0 +1,95 @@
+{% comment %}
+  Renders a standard dropdown style menu for the header.
+
+  Usage:
+  {% render 'header-dropdown-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    <li>
+      <header-menu>
+        <details id="Details-HeaderMenu-1">
+          <summary
+            id="HeaderMenu-shop"
+            class="header__menu-item list-menu__item link focus-inset"
+          >
+            <span>Shop</span>
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <ul
+            id="HeaderMenu-MenuList-1"
+            class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+            role="list"
+            tabindex="-1"
+          >
+            <li>
+              <a
+                href="/collections/energi"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Energi
+              </a>
+            </li>
+            <li>
+              <a
+                href="/collections/somn"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Sömn
+              </a>
+            </li>
+            <li>
+              <a
+                href="/collections/stress-balans"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Stress & Balans
+              </a>
+            </li>
+            <li>
+              <a
+                href="/collections/viktbalans"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Viktbalans
+              </a>
+            </li>
+            <li>
+              <a
+                href="/collections/vardagshalsa"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Vardagshälsa
+              </a>
+            </li>
+          </ul>
+        </details>
+      </header-menu>
+    </li>
+    <li>
+      <a
+        href="/blogs/journal"
+        class="header__menu-item list-menu__item link link--text focus-inset"
+      >
+        Journal
+      </a>
+    </li>
+    <li>
+      <a
+        href="/pages/kontakt"
+        class="header__menu-item list-menu__item link link--text focus-inset"
+      >
+        Kontakt
+      </a>
+    </li>
+    <li>
+      <a
+        href="/pages/om-velna"
+        class="header__menu-item list-menu__item link link--text focus-inset"
+      >
+        Om Velna
+      </a>
+    </li>
+  </ul>
+</nav>
