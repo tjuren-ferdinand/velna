@@ -40,6 +40,13 @@
     display: flex;
   }
 
+  .header__heading-logo--fallback {
+    height: auto;
+    width: {{ settings.logo_width }}px;
+    max-width: 100%;
+    display: block;
+  }
+
   .list-menu {
     list-style: none;
     padding: 0;
@@ -170,7 +177,15 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <div class="header__heading-logo-wrapper">
+            <img
+              src="{{ 'velna-logo.png' | asset_url }}"
+              alt="{{ shop.name }}"
+              class="header__heading-logo header__heading-logo--fallback motion-reduce"
+              width="{{ settings.logo_width }}"
+              loading="eager"
+            >
+          </div>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -211,7 +226,15 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <div class="header__heading-logo-wrapper">
+            <img
+              src="{{ 'velna-logo.png' | asset_url }}"
+              alt="{{ shop.name }}"
+              class="header__heading-logo header__heading-logo--fallback motion-reduce"
+              width="{{ settings.logo_width }}"
+              loading="eager"
+            >
+          </div>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}

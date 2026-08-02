@@ -34,6 +34,23 @@
     ]
   },
   {
+    "name": "Rytm – AI-hälsoguide",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "rytm_enable",
+        "label": "Aktivera Rytm på hela sajten",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "rytm_api_key",
+        "label": "Groq API-nyckel",
+        "info": "Nyckeln körs i besökarens webbläsare. Använd en nyckel med begränsad räckvidd och rotera den regelbundet."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {

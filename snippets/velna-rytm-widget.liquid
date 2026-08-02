@@ -1,0 +1,133 @@
+{%- if settings.rytm_enable -%}
+  {{ 'component-velna-rytm.css' | asset_url | stylesheet_tag }}
+
+  <div class="rytm-widget" id="RytmWidget" data-state="closed">
+    <button type="button" class="rytm-widget__toggle" id="RytmToggle" aria-expanded="false" aria-controls="RytmPanel">
+      <span class="rytm-widget__toggle-icon rytm-widget__toggle-icon--open">
+        {{- 'icon-chat-bubble.svg' | inline_asset_content -}}
+      </span>
+      <span class="rytm-widget__toggle-icon rytm-widget__toggle-icon--close">
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+      <span class="visually-hidden">Öppna Rytm, din AI-hälsoguide</span>
+    </button>
+
+    <div class="rytm-widget__panel" id="RytmPanel" role="dialog" aria-label="Rytm – AI-hälsoguide">
+      <header class="rytm-widget__header">
+        <div class="rytm-widget__header-text">
+          <span class="rytm-widget__badge">AI-guide</span>
+          <h2 class="rytm-widget__title">Rytm</h2>
+          <p class="rytm-widget__subtitle">Din lugna hälsoguide för träning, sömn och återhämtning.</p>
+        </div>
+      </header>
+
+      <div class="rytm-widget__body" id="RytmBody">
+        <div class="rytm-widget__message rytm-widget__message--bot">
+          Hej! Jag är Rytm 🌿 Fråga mig om träning, sömn, stress eller andning – jag ger korta, praktiska råd.
+        </div>
+      </div>
+
+      <div class="rytm-widget__chips" role="group" aria-label="Förslag">
+        <button type="button" class="rytm-widget__chip" data-prompt="Ge mig en enkel andningsövning för lugn och fokus.">Andningsövning</button>
+        <button type="button" class="rytm-widget__chip" data-prompt="Ge mig tre tips på hur jag får mer energi under dagen.">Mer energi</button>
+        <button type="button" class="rytm-widget__chip" data-prompt="Hur kan jag bygga en bättre sömnrutin?">Bättre sömn</button>
+      </div>
+
+      <form class="rytm-widget__form" id="RytmForm">
+        <textarea
+          class="rytm-widget__input"
+          name="question"
+          id="RytmInput"
+          rows="1"
+          placeholder="Skriv din fråga…"
+          required
+        ></textarea>
+        <button type="submit" class="rytm-widget__send" aria-label="Skicka">
+          {{- 'icon-arrow.svg' | inline_asset_content -}}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const apiKey = {{ settings.rytm_api_key | json }};
+      const widget = document.getElementById('RytmWidget');
+      const toggle = document.getElementById('RytmToggle');
+      const form = document.getElementById('RytmForm');
+      const input = document.getElementById('RytmInput');
+      const body = document.getElementById('RytmBody');
+
+      if (!widget || !toggle || !form) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = widget.getAttribute('data-state') === 'open';
+        widget.setAttribute('data-state', isOpen ? 'closed' : 'open');
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        if (!isOpen) {
+          setTimeout(function () { input.focus(); }, 150);
+        }
+      });
+
+      document.querySelectorAll('.rytm-widget__chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          input.value = chip.dataset.prompt;
+          form.dispatchEvent(new Event('submit', { cancelable: true }));
+        });
+      });
+
+      function addMessage(text, from) {
+        const el = document.createElement('div');
+        el.className = 'rytm-widget__message rytm-widget__message--' + from;
+        el.textContent = text;
+        body.appendChild(el);
+        body.scrollTop = body.scrollHeight;
+        return el;
+      }
+
+      if (!apiKey) {
+        form.querySelector('.rytm-widget__send').disabled = true;
+        input.placeholder = 'Rytm är inte aktiverad ännu';
+        return;
+      }
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const question = input.value.trim();
+        if (!question) return;
+
+        addMessage(question, 'user');
+        input.value = '';
+        const thinking = addMessage('Rytm tänker…', 'bot');
+
+        try {
+          const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + apiKey
+            },
+            body: JSON.stringify({
+              model: 'llama3-8b-8192',
+              messages: [
+                {
+                  role: 'system',
+                  content: 'Du är Rytm, en lugn och omtänksam AI-hälsoguide inom träning, sömn, stress, andning och vardagshälsa för varumärket Velna. Svara kort, konkret och vänligt på svenska. Ge inga medicinska diagnoser och påminn vid behov om att kontakta vårdpersonal.'
+                },
+                { role: 'user', content: question }
+              ],
+              temperature: 0.7,
+              max_tokens: 500
+            })
+          });
+
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error?.message || 'Något gick fel.');
+          thinking.textContent = data.choices?.[0]?.message?.content || 'Inget svar mottogs.';
+        } catch (error) {
+          thinking.textContent = 'Rytm kunde inte svara just nu. Försök igen om en stund.';
+        }
+      });
+    })();
+  </script>
+{%- endif -%}
