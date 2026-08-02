@@ -1,0 +1,38 @@
+{% comment %}
+  Resolve a hardcoded /pages/<handle> link to the real URL of a
+  published Shopify page, even if the page title/handle is not exact.
+  Falls back to the original href if nothing is found.
+  Usage: {% render 'velna-smart-link', href: '/pages/om-velna' %}
+{% endcomment %}
+{%- liquid
+  assign original = href | default: ''
+  assign result = original
+
+  if original contains '/pages/'
+    assign slug = original | split: '/pages/' | last
+    assign slug_down = slug | downcase
+    assign page_obj = pages[slug]
+
+    if page_obj and page_obj.published_at
+      assign result = page_obj.url
+    else
+      for p in pages
+        if p.handle == slug and p.published_at
+          assign result = p.url
+          break
+        endif
+      endfor
+
+      if result == original
+        for p in pages
+          assign p_title = p.title | downcase
+          if p_title contains slug_down and p.published_at
+            assign result = p.url
+            break
+          endif
+        endfor
+      endif
+    endif
+  endif
+-%}
+{{ result | default: original }}

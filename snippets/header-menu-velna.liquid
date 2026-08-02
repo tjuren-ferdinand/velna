@@ -5,6 +5,10 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 
+{% capture traningsplan_url %}{% render 'velna-smart-link', href: '/pages/traningsplan' %}{% endcapture %}
+{% capture kontakt_url %}{% render 'velna-smart-link', href: '/pages/kontakt' %}{% endcapture %}
+{% capture om_velna_url %}{% render 'velna-smart-link', href: '/pages/om-velna' %}{% endcapture %}
+
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     <li>
@@ -77,7 +81,7 @@
     </li>
     <li>
       <a
-        href="/pages/traningsplan"
+        href="{{ traningsplan_url | strip }}"
         class="header__menu-item list-menu__item link link--text focus-inset"
       >
         Träningsplan
@@ -85,7 +89,7 @@
     </li>
     <li>
       <a
-        href="/pages/kontakt"
+        href="{{ kontakt_url | strip }}"
         class="header__menu-item list-menu__item link link--text focus-inset"
       >
         Kontakt
@@ -93,7 +97,7 @@
     </li>
     <li>
       <a
-        href="/pages/om-velna"
+        href="{{ om_velna_url | strip }}"
         class="header__menu-item list-menu__item link link--text focus-inset"
       >
         Om Velna

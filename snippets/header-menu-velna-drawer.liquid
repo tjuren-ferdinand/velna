@@ -5,6 +5,10 @@
   {% render 'header-drawer' %}
 {% endcomment %}
 
+{% capture traningsplan_url %}{% render 'velna-smart-link', href: '/pages/traningsplan' %}{% endcapture %}
+{% capture kontakt_url %}{% render 'velna-smart-link', href: '/pages/kontakt' %}{% endcapture %}
+{% capture om_velna_url %}{% render 'velna-smart-link', href: '/pages/om-velna' %}{% endcapture %}
+
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
     <summary
@@ -103,24 +107,24 @@
               </li>
               <li>
                 <a
-                  href="/pages/traningsplan"
-                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                  href="{{ traningsplan_url | strip }}"
+                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                 >
                   Träningsplan
                 </a>
               </li>
               <li>
                 <a
-                  href="/pages/kontakt"
-                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                  href="{{ kontakt_url | strip }}"
+                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                 >
                   Kontakt
                 </a>
               </li>
               <li>
                 <a
-                  href="/pages/om-velna"
-                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                  href="{{ om_velna_url | strip }}"
+                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                 >
                   Om Velna
                 </a>
