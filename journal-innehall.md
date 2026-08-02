@@ -38,7 +38,7 @@ Bildtips: sök gratis på unsplash.com med sökorden under varje artikel. Välj 
 <h2>5. Skriv av dig</h2>
 <p>Snurrar tankarna? Skriv ner morgondagens att-göra-lista innan du lägger dig. Studier visar att det kan förkorta insomningstiden markant.</p>
 
-<p><em>Utforska vårt sortiment för naturligt sömnstöd i kategorin <a href="/collections/halsa-valmaende">Sömn</a>.</em></p>
+<p><em>Utforska vårt sortiment för naturligt sömnstöd i kategorin <a href="/collections/somn">Sömn</a>.</em></p>
 
 <p><small>Kosttillskott ersätter inte en varierad kost och hälsosam livsstil.</small></p>
 ```
@@ -80,7 +80,7 @@ Bildtips: sök gratis på unsplash.com med sökorden under varje artikel. Välj 
   <li>Kombinera med grunderna: sömn, rörelse och återhämtning.</li>
 </ul>
 
-<p><em>Hitta våra utvalda adaptogener i kategorin <a href="/collections/traning-hemma">Stress &amp; Balans</a>.</em></p>
+<p><em>Hitta våra utvalda adaptogener i kategorin <a href="/collections/stress-balans">Stress &amp; Balans</a>.</em></p>
 
 <p><small>Kosttillskott ersätter inte en varierad kost. Rådgör med läkare vid medicinering eller graviditet.</small></p>
 ```
@@ -123,7 +123,7 @@ Bildtips: sök gratis på unsplash.com med sökorden under varje artikel. Välj 
 <h2>7. Sätt en digital solnedgång</h2>
 <p>Energin i morgon skapas i kväll. Skärmstopp en timme före läggdags är den billigaste energiinvesteringen som finns.</p>
 
-<p><em>Se våra tillskott för energi och fokus i kategorin <a href="/collections/kosttillskott">Energi</a>.</em></p>
+<p><em>Se våra tillskott för energi och fokus i kategorin <a href="/collections/energi">Energi</a>.</em></p>
 
 <p><small>Kosttillskott ersätter inte en varierad kost och hälsosam livsstil.</small></p>
 ```
@@ -160,7 +160,7 @@ Bildtips: sök gratis på unsplash.com med sökorden under varje artikel. Välj 
 <h2>Var snäll mot dig själv</h2>
 <p>En dålig dag är data, inte ett misslyckande. Forskning om beteendeförändring visar att självmedkänsla ger bättre långsiktiga resultat än självkritik.</p>
 
-<p><em>Utforska vårt stöd för en hållbar viktresa i kategorin <a href="/collections/viktminskning">Viktbalans</a>.</em></p>
+<p><em>Utforska vårt stöd för en hållbar viktresa i kategorin <a href="/collections/viktbalans">Viktbalans</a>.</em></p>
 
 <p><small>Kosttillskott ersätter inte en varierad kost och hälsosam livsstil. Vid frågor om vikt och hälsa, rådgör med vårdpersonal.</small></p>
 ```
