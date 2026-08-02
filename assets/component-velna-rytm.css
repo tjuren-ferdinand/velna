@@ -167,7 +167,13 @@
   font-size: 1.35rem;
   font-family: inherit;
   max-height: 90px;
+  overflow-y: hidden;
   background: #fff;
+  scrollbar-width: none;
+}
+
+.rytm-widget__input::-webkit-scrollbar {
+  display: none;
 }
 
 .rytm-widget__input:focus {
